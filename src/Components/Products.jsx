@@ -1,7 +1,7 @@
 import AddProduct from "./AddProduct";
 
 let Products = (props) => {
-    console.log(props.data);
+    //  .log(props.data);
     let AllProductsItems = props.data.map((item,i)=>{
         return(
             <tr key={item.id}>
@@ -20,6 +20,9 @@ let Products = (props) => {
             </tr>
         )
     })
+
+    
+
     return (
         <>
 

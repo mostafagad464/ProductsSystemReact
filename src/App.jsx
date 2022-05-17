@@ -6,15 +6,16 @@ import Products from './Components/Products';
 import ProductDetails from './Components/ProductDetails';
 import AddProduct from './Components/AddProduct';
 import React from 'react';
+import Home from './Components/Home';
 
-let productObject = {
-  id: 0,
-  name: "",
-  price: "",
-  quantity: 0,
-  image: "",
-  description: ""
-}
+// let productObject = {
+//   id: 0,
+//   name: "",
+//   price: "",
+//   quantity: 0,
+//   image: "",
+//   description: ""
+// }
 
 // function App() {
 //   let ProductsObj=[
@@ -70,43 +71,43 @@ class App extends React.Component {
     //   { id: 3, name: "Third Product", price: "35", quantity: 240, image: "3.png", description: "Item" }
     // ];
     // First step => put data in state object to wrrap data (Initailize state object)
-    this.state = {
-      ProductsObj: [
-        { id: 1, name: "First Product", price: "49", quantity: 100, image: "1.jpg", description: "Good Item" },
-        { id: 2, name: "Sectond Product", price: "70", quantity: 88, image: "2.jpg", description: "New Item" },
-        { id: 3, name: "Third Product", price: "35", quantity: 240, image: "3.png", description: "Item" }
-      ],
-      AddProductFlag:false,
-      ProductIndex:0,
-    }
+    // this.state = {
+    //   ProductsObj: [
+    //     { id: 1, name: "First Product", price: "49", quantity: 100, image: "1.jpg", description: "Good Item" },
+    //     { id: 2, name: "Sectond Product", price: "70", quantity: 88, image: "2.jpg", description: "New Item" },
+    //     { id: 3, name: "Third Product", price: "35", quantity: 240, image: "3.png", description: "Item" }
+    //   ],
+    //   AddProductFlag:false,
+    //   ProductIndex:0,
+    // }
 
   }
   // Second step => when you want to change => create function to reinitialize the property of the state.
   // this done through function called => SetState() 
-  AddItem = (prod) => {
-    alert("Function called");
-    // this.state.ProductsObj.push(prod);
-    let NewProductsArray = [...this.state.ProductsObj, prod];
-    this.setState({
-      ProductsObj: NewProductsArray,
-      AddProductFlag:false,
-    });
-    console.log(NewProductsArray);
-    // console.log(this.state.ProductsObj);
-  }
+  // AddItem = (prod) => {
+  //   alert("Function called");
+  //   // this.state.ProductsObj.push(prod);
+  //   let NewProductsArray = [...this.state.ProductsObj, prod];
+  //   this.setState({
+  //     ProductsObj: NewProductsArray,
+  //     AddProductFlag:false,
+  //   });
+  //   console.log(NewProductsArray);
+  //   // console.log(this.state.ProductsObj);
+  // }
 
-  RemoveItem = (_ItemIndex) => {
-    this.state.ProductsObj.splice(_ItemIndex, 1);
-    this.setState({
-      ProductsObj: this.state.ProductsObj,
-    });
-  }
+  // RemoveItem = (_ItemIndex) => {
+  //   this.state.ProductsObj.splice(_ItemIndex, 1);
+  //   this.setState({
+  //     ProductsObj: this.state.ProductsObj,
+  //   });
+  // }
 
-  ItemDetails = (_ItemIndex)=>{
-    this.setState({
-      ProductIndex:_ItemIndex,
-    })
-  }
+  // ItemDetails = (_ItemIndex)=>{
+  //   this.setState({
+  //     ProductIndex:_ItemIndex,
+  //   })
+  // }
 
   render() {
     // return (
@@ -127,35 +128,46 @@ class App extends React.Component {
 
     // To show products in view and add product in seperatong view 
 
-    if (this.state.AddProductFlag == false) {
-      return (
-        <div className="container">
-          <Header />
-          {/* <hr /> */}
-          <input onClick={()=>this.setState({AddProductFlag:true,})} type={"button"} value={"Add Product"} className='btn btn-primary' />
-          <Products data={this.state.ProductsObj} AddProdFun={this.AddItem} RemoveProduct={this.RemoveItem} ProductDetails={this.ItemDetails} />
-          {/* <hr /> */}
-          {/* if (this.state.ProductIndex!=-1) */}
-          {/* { */}
-            <ProductDetails data={this.state.ProductsObj[this.state.ProductIndex]} />
-          {/* } */}
-          <hr />
-          <Footer />
-        </div>
-      );
-    }
-    else {
-      return (
-        
-        <div className="container">
-          <Header />
-          <AddProduct AddProdFun={this.AddItem} />
-          <hr />
-          <Footer />
-        </div>
-      );
-    }
+
+    // <Login />
+    //   if (this.state.AddProductFlag == false) {
+    //     return (
+    //       <div className="container">
+    //         {/* <Header /> */}
+    //         {/* <hr /> */}
+    //         <input onClick={()=>this.setState({AddProductFlag:true,})} type={"button"} value={"Add Product"} className='btn btn-primary' />
+    //         <Products data={this.state.ProductsObj} AddProdFun={this.AddItem} RemoveProduct={this.RemoveItem} ProductDetails={this.ItemDetails} />
+    //         {/* <hr /> */}
+    //         {/* if (this.state.ProductIndex!=-1) */}
+    //         {/* { */}
+    //           <ProductDetails data={this.state.ProductsObj[this.state.ProductIndex]} />
+    //         {/* } */}
+    //         <hr />
+    //         {/* <Footer /> */}
+    //       </div>
+    //     );
+    //   }
+    //   else {
+    //     return (
+
+    //       <div className="container">
+    //         <Header />
+    //         <AddProduct AddProdFun={this.AddItem} />
+    //         <hr />
+    //         <Footer />
+    //       </div>
+    //     );
+    //   }
+
+    return (
+
+
+      <>
+        {/* <Home /> */}
+      </>
+    )
   }
+
 }
 
 export default App;
