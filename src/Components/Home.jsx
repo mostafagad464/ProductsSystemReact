@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import logo from '../logo.svg';
 import '../App.css';
 import Header from './Header';
@@ -17,9 +18,9 @@ let productObject = {
     quantity: 0,
     image: "",
     description: ""
-  }
+}
 
-class Content extends Component {
+class Home extends Component {
     constructor() {
         super();
         this.state = {
@@ -31,7 +32,7 @@ class Content extends Component {
             AddProductFlag: false,
             ProductIndex: 0,
         }
-        
+
     }
     AddItem = (prod) => {
         alert("Function called");
@@ -44,7 +45,7 @@ class Content extends Component {
         console.log(NewProductsArray);
         // console.log(this.state.ProductsObj);
 
-        
+
     }
 
     RemoveItem = (_ItemIndex) => {
@@ -60,7 +61,7 @@ class Content extends Component {
         })
     }
 
-    GoToAddProduct = ()=>{
+    GoToAddProduct = () => {
         this.props.history.push("/products/add");
     };
 
@@ -68,29 +69,40 @@ class Content extends Component {
     render() {
         console.log(this.props);
 
-        
+
 
         if (this.state.AddProductFlag == false) {
             return (
-                <div className="container">
-                    {/* <Header /> */}
-                    {/* <hr /> */}
-                    <input onClick={() => this.setState({ AddProductFlag: true, })} AddProdFun={this.AddItem} type={"button"} value={"Add Product"} className='btn btn-primary' />
-                    ||
-                    <input onClick={this.GoToAddProduct} AddProdFun={this.AddItem} type={"button"} value={"Add Product Using Props"} className='btn btn-primary' />
-                    
-                    <Products data={this.state.ProductsObj} AddProdFun={this.AddItem} RemoveProduct={this.RemoveItem} ProductDetails={this.ItemDetails} />
-                    {/* <hr /> */}
-                    {/* if (this.state.ProductIndex!=-1) */}
-                    {/* { */}
-                    {/* <ProductDetails data={this.state.ProductsObj[this.state.ProductIndex]} /> */}
-                    {/* } */}
-                    <hr />
-                    {/* <Footer /> */}
-                </div>
+                <>
+                    <Header />
+
+                    <div className="container">
+                        {/* <Header /> */}
+                        {/* <hr /> */}
+                        <input onClick={() => this.setState({ AddProductFlag: true, })} AddProdFun={this.AddItem} type={"button"} value={"Add Product"} className='btn btn-primary' />
+                        ||
+                        <input onClick={this.GoToAddProduct} AddProdFun={this.AddItem} type={"button"} value={"Add Product Using Props"} className='btn btn-primary' />
+
+                        <Products data={this.state.ProductsObj} AddProdFun={this.AddItem} RemoveProduct={this.RemoveItem} ProductDetails={this.ItemDetails} />
+                        {/* <hr /> */}
+                        {/* if (this.state.ProductIndex!=-1) */}
+                        {/* { */}
+                        {/* <ProductDetails data={this.state.ProductsObj[this.state.ProductIndex]} /> */}
+                        {/* } */}
+                        <hr />
+                        {/* <Footer /> */}
+                    </div>
+                   <Footer />
+
+                    <Router>
+                        <Route />
+                        <Route />
+                        <Route />
+                    </Router>
+                </>
             );
-        }
-        else {
+        } 
+        else { 
             // this.Cook.set("Pass","123");
             // this.Cook.set("Pass", "Ali");
             this.Cook.get("Pass");
@@ -109,4 +121,4 @@ class Content extends Component {
 }
 
 
-export default Content;
+export default Home; 
